@@ -55,32 +55,40 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
 function add() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
-  currentResult = currentResult + enteredNumber;
+  currentResult += enteredNumber;
   createAndWriteOutput('+', initialResult, enteredNumber);
 }
 
 function subtract() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
-  currentResult = currentResult - enteredNumber;
+  currentResult -= enteredNumber;
   createAndWriteOutput('-', initialResult, enteredNumber);
 }
 
 function multiply() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
-  currentResult = currentResult * enteredNumber;
+  currentResult *= enteredNumber;
   createAndWriteOutput('*', initialResult, enteredNumber);
 }
 
 function divide() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
-  currentResult = currentResult / enteredNumber;
+  currentResult /= enteredNumber;
   createAndWriteOutput('/', initialResult, enteredNumber);
+}
+
+function power() {
+  const enteredNumber = getUserInput();
+  const initialResult = currentResult;
+  currentResult **= enteredNumber;
+  createAndWriteOutput('**', initialResult, enteredNumber);
 }
 
 addBtn.addEventListener('click', add);
 subtractBtn.addEventListener('click', subtract);
 multiplyBtn.addEventListener('click', multiply);
 divideBtn.addEventListener('click', divide);
+powerBtn.addEventListener('click', power);
