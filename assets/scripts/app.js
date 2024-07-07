@@ -41,7 +41,7 @@
 // transform(10, double); // double = fn(num) = a * 2 funksiyası belə olduğu üçün və buna görə də fun(num) adında funksiyaya da bunu əlavə edirik ki belə olsun cavabı da 10 qoyduğumuz zaman 2 qatı olaraq 20 edir.
 
 
-//! /*
+// /* !
 
 
 const defaultResult = 0;
@@ -57,20 +57,24 @@ function createAndWriteOutput(operator, resultBeforeCalc, calcNumber) {
   outputResult(currentResult, calcDescription);
 }
 
+
+function writeToLog(operationIdentifier, prevResult, operationNumber, newResult) {
+  const logEntry = {
+    operation: operationIdentifier,
+    prevResult: prevResult,
+    number: operationNumber,
+    result: newResult
+  };
+  logEntries.push(logEntry);
+  console.log(logEntries);
+}
+
 function add() {
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
   currentResult += enteredNumber;
   createAndWriteOutput('+', initialResult, enteredNumber);
-  const logEntry = {
-    operation: 'ADD',
-    prevResult: initialResult,
-    number: enteredNumber,
-    result: currentResult
-  };
-  logEntries.push(logEntry);
-  console.log(logEntry.operation)
-  console.log(logEntries);
+  writeToLog('ADD', initialResult, enteredNumber, currentResult);
 }
 
 function subtract() {
@@ -78,6 +82,7 @@ function subtract() {
   const initialResult = currentResult;
   currentResult -= enteredNumber;
   createAndWriteOutput('-', initialResult, enteredNumber);
+  writeToLog('SUBTRACT', initialResult, enteredNumber, currentResult);
 }
 
 function multiply() {
@@ -85,6 +90,7 @@ function multiply() {
   const initialResult = currentResult;
   currentResult *= enteredNumber;
   createAndWriteOutput('*', initialResult, enteredNumber);
+  writeToLog('MULTIPLY', initialResult, enteredNumber, currentResult);
 }
 
 function divide() {
@@ -92,6 +98,7 @@ function divide() {
   const initialResult = currentResult;
   currentResult /= enteredNumber;
   createAndWriteOutput('/', initialResult, enteredNumber);
+  writeToLog('DIVIDE', initialResult, enteredNumber, currentResult);
 }
 
 function power() {
@@ -99,6 +106,7 @@ function power() {
   const initialResult = currentResult;
   currentResult **= enteredNumber;
   createAndWriteOutput('**', initialResult, enteredNumber);
+  writeToLog('POWER', initialResult, enteredNumber, currentResult);
 }
 
 addBtn.addEventListener('click', add);
@@ -107,5 +115,4 @@ multiplyBtn.addEventListener('click', multiply);
 divideBtn.addEventListener('click', divide);
 powerBtn.addEventListener('click', power);
 
-//! */
-
+// ! */
