@@ -40,8 +40,13 @@
 // }
 // transform(10, double); // double = fn(num) = a * 2 funksiyası belə olduğu üçün və buna görə də fun(num) adında funksiyaya da bunu əlavə edirik ki belə olsun cavabı da 10 qoyduğumuz zaman 2 qatı olaraq 20 edir.
 
+
+//! /*
+
+
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = [];
 
 function getUserInput() {
   return parseInt(userInput.value);
@@ -57,6 +62,15 @@ function add() {
   const initialResult = currentResult;
   currentResult += enteredNumber;
   createAndWriteOutput('+', initialResult, enteredNumber);
+  const logEntry = {
+    operation: 'ADD',
+    prevResult: initialResult,
+    number: enteredNumber,
+    result: currentResult
+  };
+  logEntries.push(logEntry);
+  console.log(logEntry.operation)
+  console.log(logEntries);
 }
 
 function subtract() {
@@ -92,3 +106,6 @@ subtractBtn.addEventListener('click', subtract);
 multiplyBtn.addEventListener('click', multiply);
 divideBtn.addEventListener('click', divide);
 powerBtn.addEventListener('click', power);
+
+//! */
+
