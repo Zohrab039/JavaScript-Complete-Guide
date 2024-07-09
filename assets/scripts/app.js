@@ -70,6 +70,15 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
 }
 
 function calculateResult(calcOperation) {
+  if (
+    calcOperation !== 'ADD' &&
+    calcOperation !== 'SUBTRACT' &&
+    calcOperation !== 'DIVIDE' &&
+    calcOperation !== 'POWER'
+  ) {
+    return;
+  }
+
   const enteredNumber = getUserInput();
   const initialResult = currentResult;
   let mathOperation;
@@ -89,6 +98,8 @@ function calculateResult(calcOperation) {
     currentResult **= enteredNumber;
     mathOperation = '**';
   }
+
+
   createAndWriteOutput(mathOperation, initialResult, enteredNumber);
   writeToLog(calcOperation, initialResult, enteredNumber, currentResult);
 }
