@@ -70,16 +70,17 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
 }
 
 function calculateResult(calcOperation) {
+  const enteredNumber = getUserInput();
   if (
     calcOperation !== 'ADD' &&
     calcOperation !== 'SUBTRACT' &&
     calcOperation !== 'DIVIDE' &&
-    calcOperation !== 'POWER'
+    calcOperation !== 'POWER' ||
+    !enteredNumber
   ) {
     return;
   }
 
-  const enteredNumber = getUserInput();
   const initialResult = currentResult;
   let mathOperation;
   if (calcOperation === 'ADD') {
